@@ -1,0 +1,19 @@
+{
+  "username": "Fox",
+  "difficulty": "Hard",
+  "score": 39,
+  "player_max_health": 27,
+  "player_damage": 2,
+  "player_fire_rate": 1.3000000000000003,
+  "friendly_health": 19,
+  "friendly_damage": 3,
+  "friendly_fire_rate": 2.7000000000000015,
+  "upgrade_purchase_counts": {
+    "player_health": 15,
+    "player_damage": 1,
+    "player_fire_rate": 3,
+    "friendly_health": 15,
+    "friendly_damage": 2,
+    "friendly_fire_rate": 17
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "username": "Player",
+  "difficulty": "Medium",
+  "score": 0,
+  "player_max_health": 12,
+  "player_damage": 1,
+  "player_fire_rate": 1.0,
+  "friendly_health": 4,
+  "friendly_damage": 1,
+  "friendly_fire_rate": 1.0,
+  "upgrade_purchase_counts": {
+    "player_health": 0,
+    "player_damage": 0,
+    "player_fire_rate": 0,
+    "friendly_health": 0,
+    "friendly_damage": 0,
+    "friendly_fire_rate": 0
+  }
+}
