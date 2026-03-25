@@ -6,6 +6,7 @@ Run          : python slot_machine.py
 
 All reel symbols are drawn with pure pygame primitives (circles, polygons,
 lines) – no font rendering or Unicode required, works on every platform.
+
 """
 
 import pygame
