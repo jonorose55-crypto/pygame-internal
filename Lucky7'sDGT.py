@@ -1,6 +1,7 @@
 """
-Lucky 7s – DGT Edition
-pip install pygame  |  python slot_machine.py
+Lucky 7s DGT Edition
+Jono Rose Year 11 DGT Internal Assessment Casino Slot Machine Game
+A Fix for casino addicts or just general fun
 """
 
 import pygame, random, math, sys, json, os
@@ -13,7 +14,7 @@ import pygame, random, math, sys, json, os
 pygame.init()
 SW, SH = 520, 700
 screen = pygame.display.set_mode((SW, SH))
-pygame.display.set_caption("Lucky 7s – DGT Edition")
+pygame.display.set_caption("Lucky 7s – DGT Edition") # Name of the casion slot machine game
 clock  = pygame.time.Clock()
 FPS    = 60
 
@@ -364,6 +365,7 @@ class BetInput:
 
 # =============================================================================
 #  ATM aka the start screen of the game with login features and account saves stuff like that
+#  This feature is apart of the whole program that I made second, that being the start screen atm function
 # =============================================================================
 
 class ATMScreen:
@@ -518,6 +520,7 @@ class ATMScreen:
 
 # =============================================================================
 #  Load screen (a part of the start screen) the pre-slot machine game.
+#  Yet again a part of the atm function and start sceeen area, this was build after the main slot game.
 # =============================================================================
 
 class LoadScreen:
@@ -582,6 +585,7 @@ class LoadScreen:
 
 # =============================================================================
 #  Proper slot machiene game with balance and spinning icons as if it were a proper casino slot machine (with Dgt branding of course)
+#  This is the First aspects of the game that I made, it is the actual slot so I made the program around this design
 # =============================================================================
 
 class SlotGame:

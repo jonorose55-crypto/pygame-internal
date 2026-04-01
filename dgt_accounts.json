@@ -1,8 +1,17 @@
 {
   "jono": {
-    "cash": 40.0
+    "cash": 0.0
   },
   "Jono": {
+    "cash": 67.0
+  },
+  "eryn": {
+    "cash": 2000.0
+  },
+  "obin": {
     "cash": 0.0
+  },
+  "William": {
+    "cash": 820.0
   }
 }
