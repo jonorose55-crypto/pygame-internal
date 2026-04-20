@@ -1,7 +1,9 @@
 """
 Lucky 7s DGT Edition
 Jono Rose Year 11 DGT Internal Assessment Casino Slot Machine Game
-A Fix for casino addicts or just general fun
+Casino game that simulates the good of actual slots with a game version.
+
+Current version !ACHIEVED!/merit/excellence
 """
 
 import pygame, random, math, sys, json, os
