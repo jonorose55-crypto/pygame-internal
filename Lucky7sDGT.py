@@ -400,7 +400,7 @@ class ATMScreen:
 
         if self.state == "username":
             if k == pygame.K_RETURN:
-                u = self.input_buf.strip()
+                u = self.input_buf.strip().upper()
                 if not u: return
                 self.username = u
                 if u not in self.accounts:
