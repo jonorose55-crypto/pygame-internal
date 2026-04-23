@@ -3,7 +3,7 @@ Lucky 7s DGT Edition
 Jono Rose Year 11 DGT Internal Assessment Casino Slot Machine Game
 Casino game that simulates the good of actual slots with a game version.
 
-Current version !ACHIEVED!/merit/excellence
+Current version achieved/!MERIT!/excellence
 """
 
 import pygame, random, math, sys, json, os
@@ -367,7 +367,9 @@ class BetInput:
 
 # =============================================================================
 #  ATM aka the start screen of the game with login features and account saves stuff like that
-#  This feature is apart of the whole program that I made second, that being the start screen atm function
+#  This feature is apart of the atm screen because it is the first thing you see when you start the game. 
+#  It is where you login to your account and access the slot machine game.
+#  It also has the account saving features so it made sense to put it here.
 # =============================================================================
 
 class ATMScreen:
@@ -586,8 +588,9 @@ class LoadScreen:
 
 
 # =============================================================================
-#  Proper slot machiene game with balance and spinning icons as if it were a proper casino slot machine (with Dgt branding of course)
-#  This is the First aspects of the game that I made, it is the actual slot so I made the program around this design
+#  Proper slot machiene game with balance and spinning icons as if it were a proper casino slot machine (with Dgt branding)
+#  This is the First aspects of the game that I made, it is the actual slot so I made the program around this design.
+#  It has the spinning reels, the lever, the bet input, and the cashout button. It also has the win calculation.
 # =============================================================================
 
 class SlotGame:

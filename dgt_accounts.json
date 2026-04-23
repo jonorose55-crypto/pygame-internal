@@ -1,5 +1,20 @@
 {
   "JONO": {
     "cash": 50.0
+  },
+  "TEST": {
+    "cash": 0.0
+  },
+  "NEW PLAYER": {
+    "cash": 90.0
+  },
+  "BILL": {
+    "cash": 50.0
+  },
+  "BIELLLLLLLL": {
+    "cash": 0.0
+  },
+  "ERYN": {
+    "cash": 50.0
   }
 }
