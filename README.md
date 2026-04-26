@@ -43,3 +43,4 @@ To play the game, run this command in your terminal:
 ```
 python Lucky7sDGT.py
 ```
+Sometimes it might come up with an error, if this happens running it twice usually fixes it.
