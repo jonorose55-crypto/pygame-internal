@@ -436,6 +436,8 @@ class ATMScreen:
                 self.set_msg("ACCOUNT RESET TO $50.00")
             elif k == pygame.K_3:
                 self.username = ""; self.state = "username"; self.input_buf = ""
+            else:
+                self.set_msg("This input is not valid.")
             return
 
     def cashout(self, username, amount):
