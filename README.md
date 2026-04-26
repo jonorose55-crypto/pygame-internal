@@ -35,4 +35,11 @@ And then there's the artistry of it all. The color palettes matter. The sound ef
 
 The beauty of pygame is that you're not constrained by massive budgets or teams. Some of the most creative games come from passionate developers who pour their heart into a smaller vision, iterating and refining until it's just perfect. That's where the real magic happens.
 
-press run and play the game.
+## How to play meh pro game
+
+press the run button in the .py file.
+OR
+To play the game, run this command in your terminal:
+```
+python Lucky7sDGT.py
+```
