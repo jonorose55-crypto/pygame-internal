@@ -483,7 +483,7 @@ class ATMScreen:
             tc(screen, "─"*28,               F_ATM_SM,   SCREEN_DIM, cx, y+88)
             tc(screen, "CASINO  TERMINAL",   F_ATM_MED,  SCREEN_FG,  cx, y+112)
             tc(screen, "─"*28,               F_ATM_SM,   SCREEN_DIM, cx, y+134)
-            blink = "PRESS  ENTER  TO  BEGIN" if self.cur_t < 0.5 else ""
+            blink = "PRESS THE ENTER KEY TO BEGIN" if self.cur_t < 0.5 else ""
             tc(screen, blink, F_ATM_SM, AMBER, cx, y+164)
             if self.last_co:
                 u, a = self.last_co
