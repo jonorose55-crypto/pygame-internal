@@ -3,7 +3,7 @@ Lucky 7s DGT Edition
 Jono Rose Year 11 DGT Internal Assessment Casino Slot Machine Game
 Casino game that simulates the good of actual slots with a game version.
 
-Current version achieved/!MERIT!/excellence
+Current version achieved/merit/!EXCELLENCE!
 """
 
 import pygame, random, math, sys, json, os
@@ -13,9 +13,18 @@ import pygame, random, math, sys, json, os
 # Setup code
 # =============================================================================
 
+os.environ['SDL_VIDEO_CENTERED'] = '1'
 pygame.init()
 SW, SH = 520, 700
-screen = pygame.display.set_mode((SW, SH))
+info = pygame.display.Info()
+avail_w = max(1, info.current_w - 40)
+avail_h = max(1, info.current_h - 80)
+SCALE = min(avail_w / SW, avail_h / SH, 4.0)
+if SCALE < 1.0:
+    SCALE = 1.0
+DW, DH = int(SW * SCALE), int(SH * SCALE)
+window = pygame.display.set_mode((DW, DH))
+screen = pygame.Surface((SW, SH))
 pygame.display.set_caption("Lucky 7s – DGT Edition") # Name of the casion slot machine game
 clock  = pygame.time.Clock()
 FPS    = 60
@@ -343,7 +352,7 @@ class BetInput:
 
     def handle(self, event):
         if event.type == pygame.MOUSEBUTTONDOWN:
-            self.active = self.rect.collidepoint(event.pos)
+            self.active = self.rect.collidepoint((event.pos[0] / SCALE, event.pos[1] / SCALE))
         if event.type == pygame.KEYDOWN and self.active:
             if event.key == pygame.K_BACKSPACE:
                 self.buf = self.buf[:-1]
@@ -523,9 +532,8 @@ class ATMScreen:
             if self.msg_t > 0:
                 tc(screen, self.msg, F_ATM_SM, AMBER, cx, y+242)
 
+        window.blit(pygame.transform.smoothscale(screen, (DW, DH)), (0, 0))
         pygame.display.flip()
-
-
 # =============================================================================
 #  Load screen (a part of the start screen) the pre-slot machine game.
 #  Yet again a part of the atm function and start sceeen area, this was build after the main slot game.
@@ -588,6 +596,7 @@ class LoadScreen:
         tc(screen, "[ESC]   GO BACK",        F_ATM_XS, SCREEN_DIM, cx, y+214)
         if self.msg_t > 0:
             tc(screen, self.msg, F_ATM_SM, RED_C, cx, y+240)
+        window.blit(pygame.transform.smoothscale(screen, (DW, DH)), (0, 0))
         pygame.display.flip()
 
 
@@ -738,6 +747,7 @@ class SlotGame:
             ov.fill((0,0,0,170)); screen.blit(ov,(0,0))
             tc(screen, "OUT OF BALANCE",      F_TITLE, C_LOSE,        SW//2, SH//2-40)
             tc(screen, "Returning to ATM...", F_MED,   (200,200,200), SW//2, SH//2+10)
+        window.blit(pygame.transform.smoothscale(screen, (DW, DH)), (0, 0))
         pygame.display.flip()
 
     def _draw_payouts(self):
@@ -754,7 +764,7 @@ class SlotGame:
     def handle(self, event):
         self.bet_inp.handle(event)
         if event.type == pygame.MOUSEBUTTONDOWN:
-            p = event.pos
+            p = (event.pos[0] / SCALE, event.pos[1] / SCALE)
             if self.cashout_btn.clicked(p):
                 self.on_cashout(self.username, self.balance); return
             if self.state == "broke":
@@ -762,7 +772,7 @@ class SlotGame:
             if self.state == "idle" and not self.bet_inp.active:
                 if self.lever.hit(p): self.spin()
         elif event.type == pygame.MOUSEMOTION:
-            self.cashout_btn.hover_check(event.pos)
+            self.cashout_btn.hover_check((event.pos[0] / SCALE, event.pos[1] / SCALE))
 
 
 # =============================================================================
