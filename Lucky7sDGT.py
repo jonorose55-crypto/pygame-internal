@@ -495,7 +495,6 @@ class ATMScreen:
             if self.last_co:
                 u, a = self.last_co
                 tc(screen, f"CASHED OUT: {u}  +${a:.2f}", F_ATM_XS, C_WIN, cx, y+200)
-            tc(screen, "v1.0  //  DGT SYSTEMS", F_ATM_XS, SCREEN_DIM, cx, sr.bottom-20)
 
         elif self.state == "username":
             tc(screen, "ACCOUNT LOGIN",  F_ATM_MED, SCREEN_FG, cx, y+10)
