@@ -1,5 +1,5 @@
 
-# A Great Pygame Game
+# Lucky7s DGT Edition
 
 First, you create a virtual environment:
 ```
@@ -47,4 +47,4 @@ Sometimes it might come up with an error, if this happens running it twice usual
 
 ## Extra information
 
-If you wish to make the leaderboard not show the base account, go into dgt_accounts.json and manually remove it and any other accounts you wouldnt like to keep
+If you wish to make the leaderboard not show the base account, go into dgt_accounts.json and manually remove it and any other accounts you wouldnt like to keep. This games purpose is to replace the chance of people spending real money and losing real money. It gives the same enjoyment but keeps the user playing in a safe way without the cost.
