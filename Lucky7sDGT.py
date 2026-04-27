@@ -445,8 +445,15 @@ class ATMScreen:
                 self.set_msg("ACCOUNT RESET TO $50.00")
             elif k == pygame.K_3:
                 self.username = ""; self.state = "username"; self.input_buf = ""
+            elif k == pygame.K_4:
+                self.state = "leaderboard"
             else:
                 self.set_msg("This input is not valid.")
+            return
+
+        if self.state == "leaderboard":
+            if k == pygame.K_ESCAPE:
+                self.state = "mainmenu"
             return
 
     def cashout(self, username, amount):
@@ -521,7 +528,8 @@ class ATMScreen:
             items = [
                 ("[1] PLAY SLOTS",          SCREEN_FG),
                 ("[2] RESET ACCOUNT ($50)", RED_C),
-                ("[3] LOG OUT",             SCREEN_DIM),
+                ("[3] LOG OUT",             SCREEN_FG),
+                ("[4] LEADERBOARD",         SCREEN_FG),
             ]
             for i,(txt,col) in enumerate(items):
                 tc(screen, txt, F_ATM_SM, col, cx, y+128+i*26)
@@ -531,6 +539,17 @@ class ATMScreen:
                 self.last_co = None
             if self.msg_t > 0:
                 tc(screen, self.msg, F_ATM_SM, AMBER, cx, y+242)
+
+        elif self.state == "leaderboard":
+            tc(screen, "LEADERBOARD",  F_ATM_MED, SCREEN_FG, cx, y+10)
+            tc(screen, "─"*28,          F_ATM_SM,  SCREEN_DIM, cx, y+36)
+            sorted_accs = sorted(self.accounts.items(), key=lambda x: x[1].get("cash", 0.0), reverse=True)
+            for i, (name, data) in enumerate(sorted_accs[:5]):
+                cash = data.get("cash", 0.0)
+                rank = i + 1
+                tc(screen, f"{rank}. {name.upper()[:12]}", F_ATM_SM, SCREEN_FG, cx-60, y+62+i*28)
+                tc(screen, f"${cash:.2f}", F_ATM_SM, SCREEN_FG, cx+60, y+62+i*28)
+            tc(screen, "[ESC] GO BACK", F_ATM_XS, SCREEN_DIM, cx, y+220)
 
         window.blit(pygame.transform.smoothscale(screen, (DW, DH)), (0, 0))
         pygame.display.flip()
@@ -820,7 +839,7 @@ def main():
                     do_cashout(game.username, game.balance)
                 elif scene == "load":
                     loader = None; scene = "atm"
-                else:
+                elif scene == "atm" and atm.state != "leaderboard":
                     pygame.quit(); sys.exit()
             if scene == "atm":
                 atm.handle(ev)
